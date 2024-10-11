@@ -9,4 +9,5 @@ class TimeTracker
 end
 
 tracker = TimeTracker.new
-tracker.start
+tracker.print_total_time_spent_by_content
+tracker.print_median_time_spent_by_content
