@@ -37,7 +37,19 @@ class TicTacToe
       end
     end
 
-    empty_cells.sample
+    block_opponent_move || empty_cells.sample
+  end
+
+  def block_opponent_move
+    winning_combinations.each do |combo|
+      next unless combo.count { |row, col| @board[row][col] == 'O' } == 2
+
+      combo.each do |row, col|
+        return [row, col] if @board[row][col] == ' '
+      end
+    end
+
+    nil
   end
 
   def display_board
